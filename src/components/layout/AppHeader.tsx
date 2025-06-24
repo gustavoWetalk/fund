@@ -1,37 +1,22 @@
-// components/layout/HeaderNav.tsx
-'use client';
 import React from 'react';
-import { Layout, Button, Dropdown, Avatar, theme } from 'antd';
-import { MenuUnfoldOutlined, MenuFoldOutlined, UserOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import { Layout, Button, Avatar, Dropdown, theme, MenuProps } from 'antd';
+import { MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined, LaptopOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 
-// itens do menu de usuário (dropdown)
-const userMenuItems: MenuProps['items'] = [
-  {
-    key: 'profile',
-    icon: <UserOutlined />,
-    label: 'Meu Perfil',
-  },
-  {
-    key: 'settings',
-    icon: <UserOutlined />,
-    label: 'Configurações',
-  },
-  { type: 'divider' },
-  {
-    key: 'logout',
-    label: 'Sair',
-  },
-];
-
-interface HeaderNavProps {
+interface Props {
   collapsed: boolean;
-  toggle: () => void;
+  setCollapsed: (collapsed: boolean) => void;
 }
 
-const HeaderNav: React.FC<HeaderNavProps> = ({ collapsed, toggle }) => {
+const userMenuItems: MenuProps['items'] = [
+  { key: 'profile', icon: <UserOutlined />, label: 'Meu Perfil' },
+  { key: 'settings', icon: <LaptopOutlined />, label: 'Configurações' },
+  { type: 'divider' },
+  { key: 'logout', label: 'Sair' },
+];
+
+const AppHeader: React.FC<Props> = ({ collapsed, setCollapsed }) => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -49,10 +34,9 @@ const HeaderNav: React.FC<HeaderNavProps> = ({ collapsed, toggle }) => {
       <Button
         type="text"
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-        onClick={toggle}
+        onClick={() => setCollapsed(!collapsed)}
         style={{ fontSize: 18, width: 48, height: 48 }}
       />
-
       <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" arrow>
         <Avatar size={32} icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
       </Dropdown>
@@ -60,4 +44,4 @@ const HeaderNav: React.FC<HeaderNavProps> = ({ collapsed, toggle }) => {
   );
 };
 
-export default HeaderNav;
+export default AppHeader;
