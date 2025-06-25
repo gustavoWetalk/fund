@@ -23,7 +23,6 @@ export default function HomePage() {
     xField: 'type',
     yField: 'value',
     label: {
-      position: 'middle',
       style: {
         fill: '#FFFFFF',
         opacity: 0.6,
