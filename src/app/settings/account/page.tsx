@@ -1,4 +1,4 @@
-// app/settings/account/page.tsx
+'use client';
 import React from 'react';
 import AccountSection from '@/components/settings/AccountSection';
 

@@ -15,7 +15,7 @@ import AppLayout from '@/components/layout/AppLayout';
 const { Sider, Content } = Layout;
 
 export default function SettingsLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname(); // ex: "/settings/apps"
+  const pathname = usePathname();
   const selectedKey = pathname.split('/')[2] || 'account';
 
   const {
