@@ -44,7 +44,17 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   return (
     <ThemeContext.Provider value={{ mode, setMode }}>
-      <ConfigProvider theme={{ algorithm }}>{children}</ConfigProvider>
+      <ConfigProvider   theme={{
+          algorithm,
+          components: {
+            Menu: {
+              itemSelectedBg: '#9254de',
+              itemSelectedColor: '#FFFFFF',
+              itemHoverBg: '#b37feb',
+              itemHoverColor: '#FFFFFF',
+            },
+          },
+        }}>{children}</ConfigProvider>
     </ThemeContext.Provider>
   );
 }

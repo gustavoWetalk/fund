@@ -18,6 +18,9 @@
     --foreground: #ededed;
   }
 }
+.theme-container {
+  visibility: hidden;
+}
 
 body {
   background: var(--background);

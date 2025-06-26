@@ -48,8 +48,8 @@ export default function HomePage() {
   };
 
   return (
-    <AppLayout breadcrumbItems={[{ title: 'Dashboard' }]}>
-      <div className="grid  md:grid-cols-2 gap-6">
+    <AppLayout breadcrumbItems={[{ title: "" }]}>
+      <div className="grid  md:grid-cols-2 gap-4">
         <Card className="p-1">
           <h2 className="text-xl font-semibold mb-4">Investimentos Mensais</h2>
           <Column {...columnConfig} />

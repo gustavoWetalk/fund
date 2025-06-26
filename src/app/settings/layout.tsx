@@ -19,7 +19,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
   const selectedKey = pathname.split('/')[2] || 'account';
 
   const {
-    token: { colorBgContainer, borderRadiusLG },
+    token: { colorBgContainer, borderRadiusLG,colorBorder },
   } = theme.useToken();
 
   const menuItems = [
@@ -32,7 +32,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
   return (
     <AppLayout breadcrumbItems={[{ title: '' }]}>
       <Layout style={{ background: 'transparent', borderRadius: borderRadiusLG, overflow: 'hidden' }}>
-        <Sider width={240} style={{ background: colorBgContainer, borderRight: '1px solid #f0f0f0' }}>
+        <Sider width={240} style={{ background: colorBgContainer, borderRight: `1px solid ${colorBorder}`, boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)', }}>
           <Menu
             mode="inline"
             selectedKeys={[selectedKey]}

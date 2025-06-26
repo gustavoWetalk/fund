@@ -1,4 +1,5 @@
-// src/components/layout/AppHeader.tsx
+
+
 'use client';
 
 import React from 'react';
@@ -16,7 +17,7 @@ interface Props {
 export default function AppHeader({ collapsed, setCollapsed }: Props) {
   const router = useRouter();
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, colorBorder }  
   } = theme.useToken();
 
   const userMenuItems: MenuProps['items'] = [
@@ -32,7 +33,7 @@ export default function AppHeader({ collapsed, setCollapsed }: Props) {
         router.push('/profile');
         break;
       case 'settings':
-        router.push('/settings');  
+        router.push('/settings');
         break;
       case 'logout':
         break;
@@ -49,6 +50,10 @@ export default function AppHeader({ collapsed, setCollapsed }: Props) {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
+        height: 80,
+        borderBottom: `1px solid ${colorBorder}`,
+        boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)',
+        zIndex: 1,
       }}
     >
       <Button
@@ -63,8 +68,9 @@ export default function AppHeader({ collapsed, setCollapsed }: Props) {
         placement="bottomRight"
         arrow
       >
-        <Avatar size={32} icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
+        <Avatar size={30} icon={<UserOutlined />} style={{ cursor: 'pointer' }} />
       </Dropdown>
     </Header>
   );
 }
+
