@@ -17,7 +17,7 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`,
+        `${process.env.NEXT_PUBLIC_BASE_URL}auth/login`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
