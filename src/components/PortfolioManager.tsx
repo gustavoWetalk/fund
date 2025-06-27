@@ -36,7 +36,7 @@ export default function PortfolioManager() {
         setFetching(true);
         const token = localStorage.getItem('token') || '';
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}pocket/list`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/pocket/list`,
             { headers: { 'Content-Type': 'application/json', Authorization: token } }
         );
         const data: Portfolio[] = await res.json();
@@ -52,7 +52,7 @@ export default function PortfolioManager() {
         setLoading(true);
         const token = localStorage.getItem('token') || '';
         const res = await fetch(
-            `${process.env.NEXT_PUBLIC_BASE_URL}pocket/add`,
+            `${process.env.NEXT_PUBLIC_BASE_URL}/pocket/add`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: token },
